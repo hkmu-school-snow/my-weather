@@ -1,0 +1,63 @@
+/* forecast graph */
+#forecastgraph, #forecastgraph_other {
+    width: 200%;
+}
+
+@media only screen and (min-width: 600px) {
+    #forecastgraph, #forecastgraph_other {
+        width: 100%;
+    }
+}
+
+/* container transition */
+.container{
+    animation: transitionIn 1.5s;
+}
+@keyframes transitionIn{
+    from{
+        opacity: 0;
+        transform: rotateY(-10deg);
+    }
+    to{
+        opacity: 1;
+        transform: rotateY(0);
+    }
+}
+
+/* loader */
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff95;
+    transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader-hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader::after{
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid #dddddd;
+    border-top-color: rgb(82, 82, 82);
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+    from{
+        transform: rotate(0turn);
+    }
+    to{
+        transform: rotate(1turn);
+    }
+}

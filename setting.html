@@ -1,0 +1,62 @@
+<div class="container px-4 pt-4  pb-3" id="setting" hidden>
+    <div class="row g-2 pt-5">
+        <div class="col-12 text-center fw-bold">
+            <span class="Setting">Setting</span>
+        </div>
+    </div>
+    <hr>
+    <div class="row gy-4">
+        <div class="col-12">
+            <span class="dropdown">
+                <span class="FontSize">Font size</span>: 
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="fs-6">A</span> <span class="fs-4">A</span> <span class="fs-2">A</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item fs-6 Text" onclick="changeFontSize('fs-6')">Text</li>
+                    <li class="dropdown-item fs-4 Text" onclick="changeFontSize('fs-4')">Text</li>
+                    <li class="dropdown-item fs-2 Text" onclick="changeFontSize('fs-2')">Text</li>
+                </ul>
+            </span>
+        </div>
+    </div>
+    <div class="row gy-2 py-2">
+        <div class="col-12">
+            <span class="dropdown">
+                <span class="Language">Language</span>: 
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="currentLang"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item" onclick="changeLanguage('en')">en</li>
+                    <li class="dropdown-item" onclick="changeLanguage('zh')">中文</li>
+                    <li class="dropdown-item" onclick="changeLanguage('ko')">한국어</li>
+                </ul>
+            </span>
+        </div>
+    </div>
+    <div class="row gy-2 py-2">
+        <div class="col-12">
+            <span class="Appearance">Appearance</span>:
+            <button type="button" class="btn btn-outline-secondary btn-sm" onclick="changeMode()">
+                <img src="img/moon.png" height="20" id="mode" onclick="changeMode()">
+                </img>
+                <span id="DarkMode">Dark mode</span>
+            </button>
+        </div>
+    </div>
+    <div class="row gy-2 py-2">
+        <div class="col-12">
+            <span class="dropdown">
+                <span class="TempUnit">Temperature unit</span>: 
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span id="currentTempUnit"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item" onclick="changeUnit('°C')">°C</li>
+                    <li class="dropdown-item" onclick="changeUnit('°F')">°F</li>
+                </ul>
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark-subtle ">
+    <div class="container-fluid">
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" >
+        <img src="img/logo_light.png" height="40" id="logo">
+      </a>
+      <div>
+        <span class="align-middle" onclick="showSetting('btn')"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></span>
+      </div>
+
+      <!-- collapse -->
+      <div class="collapse navbar-collapse flex-column align-items-end " id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0"
+            id="navLinks">
+          <li class="nav-item">
+            <a class="nav-link CurrentLocationWeather" 
+               aria-current="page" 
+               onclick="showCurrentWeather()">Current location weather</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link COLW" onclick="showCOLW()">Check other location weather</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link Setting" onclick="showSetting('navbar')">Setting</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

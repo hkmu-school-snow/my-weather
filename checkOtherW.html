@@ -1,0 +1,87 @@
+<div class="container px-4 pt-4  pb-3" id="COLW" hidden>
+    <div class="row g-2 pt-5">
+        <div class="col-12 text-center fw-bold">
+            <span class="COLW">Check other location weather</span>
+        </div>
+    </div>
+    <hr>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="cityNotFoundAlert" hidden>
+        <span class="CityNotFound">City not found. Please input other city!</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="row gy-4">
+        <form autocomplete="off" action="">
+            <div class="col-12">
+                <div class="input-group">
+                    <span class="form-floating">
+                        <input type="text" class="form-control" id="cityInput" placeholder=" " onkeyup="citySearch()">
+                        <label for="cityInput"><span class="ICH">Input city here</span></label>
+                    </span>
+                    <button class="btn btn-outline-secondary rounded-end" type="button" onclick="searching()">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="result-box pe-5">
+                    <!-- search result -->
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Other location weather -->
+<div class="container px-4 pt-4 pb-3" id="COLWdata" hidden>
+    <div class="row gy-2 pt-5">
+        <div class="col-sm-6 text-center rounded BG pb-2" style="background-color:#00000010;">
+            <span id="place_other"></span>
+            <br>
+            
+            <img width="150" id="currentweatherImg_other" class="weatherImg"></img>
+            <br>
+            <div>
+                <span id="temp_other"></span>
+            </div>
+            <div>
+                <span id="humidity_other"></span>%
+            </div>
+            <div>
+                <span class="UpdateAt">Updated at</span> <span id="updateTime_other"></span>
+            </div>
+            <div>
+                <button onclick="refreshData_other()" class="btn btn-outline-dark btn-sm" id="refreshButton_other">
+                    <img src="img/refresh_black.png" height="20" id="refresh_other"> <span class="Refresh">Refresh</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-sm-6 rounded BG" style="background-color: #00000010;">
+            <div class="text-center py-3">
+                <span class="WeatherForcast">Weather forecast</span>
+            </div>
+            <div class="container text-center overflow-y-scroll" style="height: 200px;" id="forecast_other">
+                <!-- forecast data here -->
+            </div>
+        </div>
+    </div>
+    <div class="row gy-2 pt-2">
+        <div class="col-sm-12 text-center rounded BG pb-2" style="background-color:#00000010;">
+            <div class="text-center py-3">
+                <span type="button" data-bs-toggle="collapse" data-bs-target="#collapseGraph_other" aria-expanded="false" aria-controls="collapseExample" onclick="changebuttonicon_other()" id="graphicexpand_other">
+                    <span class="GraphicalVersion">Graphical version</span> <i class="fa fa-chevron-down" id="graphexpandicon_other"></i>
+                </span>
+            </div>
+            <div class="collapse" id="collapseGraph_other">
+                <div class="card card-body">
+                    <!-- graphic here-->
+                    <div class="container text-center overflow-x-auto">
+                        <!-- forecast data here -->
+                        <div class="row" id="forecastgraph_other">
+                            <canvas id="forecastChart_other"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
