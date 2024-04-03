@@ -37,7 +37,7 @@ function splashScreen(){
     document.getElementById("currentWeather").hidden = true;
     document.querySelector(".progress-bar").animate({
         width: "100%"
-    }, 3300);
+    }, 3010);
     setTimeout(closeSplash = () => {
         document.getElementById("splash-screen").hidden = true;
         document.getElementById("currentWeather").hidden = false;
