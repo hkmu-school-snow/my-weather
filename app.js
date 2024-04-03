@@ -70,7 +70,7 @@ function retrieveData() {
     };
     
     const xhr2 = new XMLHttpRequest();
-    let placeURL = "http://api.openweathermap.org/geo/1.0/reverse?lat=" + localStorage.getItem("lat") + "&lon=" + localStorage.getItem("lon") + "&appid=863d435cfa4c49f5a3175f6015ca9a60";
+    let placeURL = "https://api.openweathermap.org/geo/1.0/reverse?lat=" + localStorage.getItem("lat") + "&lon=" + localStorage.getItem("lon") + "&appid=863d435cfa4c49f5a3175f6015ca9a60";
     // 13c6cd687cf7dd3b7dcf27a1dc53afe9
     xhr2.open("get", placeURL);
     xhr2.send();
