@@ -20,14 +20,13 @@ function initialize() {
         status = "* Online *";
         splashScreen()
         setTimeout(loadData = () => {
-            retrieveData()
+            getCurrentLocation()
             // initialize font size, language and mode
             changeFontSize(localStorage.getItem("fontSize"));
             changeMode();
             changeUnit(localStorage.getItem("degreeUnit"));
             changeLanguage(localStorage.getItem("language"));
         }, 3000)
-        
     } else { // in cordova handle
     }
 }
@@ -50,51 +49,46 @@ function getCurrentLocation(){
         navigator.geolocation.getCurrentPosition(getposition = (position) => {
             localStorage.setItem("lat", position.coords.latitude);
             localStorage.setItem("lon", position.coords.longitude);
-            return true;
+            console.log("yes")
+            retrieveData();
         }, error => {
             console.log("Location permission is not allowed.");
-            return false;
+            // change to user prompt
         });
     } else {
         //Geolocation API not supported 
-        return false;
+        // change to user prompt
     }
 }
 
 function retrieveData() {
-    // get position
-    let locationPermission = false;
-    locationPermission = getCurrentLocation();
-
-    if (locationPermission){
-        // Get the data here
-        const xhr = new XMLHttpRequest();
-        let weather_url = "https://api.open-meteo.com/v1/forecast?current=temperature_2m,relative_humidity_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FSingapore";
-        if (localStorage.getItem("degreeUnit") == "°F"){
-            weather_url += "&temperature_unit=fahrenheit";
-        }
-        weather_url = weather_url + "&latitude=" + localStorage.getItem("lat") + "&longitude=" + localStorage.getItem("lon");
-        xhr.open("get", weather_url);
-        xhr.send();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                let data = JSON.parse(xhr.response);
-                displaydata(data);
-            }
-        };
-        
-        const xhr2 = new XMLHttpRequest();
-        let placeURL = "http://api.openweathermap.org/geo/1.0/reverse?lat=" + localStorage.getItem("lat") + "&lon=" + localStorage.getItem("lon") + "&appid=863d435cfa4c49f5a3175f6015ca9a60";
-        // 13c6cd687cf7dd3b7dcf27a1dc53afe9
-        xhr2.open("get", placeURL);
-        xhr2.send();
-        xhr2.onreadystatechange = function () {
-            if (xhr2.readyState === 4) {
-                let placedata = JSON.parse(xhr2.response);
-                displaydataPlace(placedata);
-            }
-        };
+    // Get the data here
+    const xhr = new XMLHttpRequest();
+    let weather_url = "https://api.open-meteo.com/v1/forecast?current=temperature_2m,relative_humidity_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FSingapore";
+    if (localStorage.getItem("degreeUnit") == "°F"){
+        weather_url += "&temperature_unit=fahrenheit";
     }
+    weather_url = weather_url + "&latitude=" + localStorage.getItem("lat") + "&longitude=" + localStorage.getItem("lon");
+    xhr.open("get", weather_url);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            let data = JSON.parse(xhr.response);
+            displaydata(data);
+        }
+    };
+    
+    const xhr2 = new XMLHttpRequest();
+    let placeURL = "http://api.openweathermap.org/geo/1.0/reverse?lat=" + localStorage.getItem("lat") + "&lon=" + localStorage.getItem("lon") + "&appid=863d435cfa4c49f5a3175f6015ca9a60";
+    // 13c6cd687cf7dd3b7dcf27a1dc53afe9
+    xhr2.open("get", placeURL);
+    xhr2.send();
+    xhr2.onreadystatechange = function () {
+        if (xhr2.readyState === 4) {
+            let placedata = JSON.parse(xhr2.response);
+            displaydataPlace(placedata);
+        }
+    };
 }
 
 // show the place name
