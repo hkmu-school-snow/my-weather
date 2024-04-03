@@ -12,7 +12,7 @@ function initialize() {
     let lang;
     if (navigator.language.includes("-")){
         lang = navigator.language.split("-")[0]
-    }
+    } else { lang = navigator.language;}
     localStorage.setItem("language", lang);
 
     let status = "* Offline *";
