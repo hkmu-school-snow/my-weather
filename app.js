@@ -37,13 +37,13 @@ function splashScreen(){
     document.getElementById("currentWeather").hidden = true;
     document.querySelector(".progress-bar").animate({
         width: "100%"
-    }, 3010);
+    }, 3000);
     setTimeout(closeSplash = () => {
         document.getElementById("splash-screen").hidden = true;
         document.getElementById("currentWeather").hidden = false;
         document.getElementById("navbar").classList.remove("d-none");
         document.getElementById("footer").classList.remove("d-none");
-    }, 3000)
+    }, 3010)
 }
 
 // get location
@@ -52,13 +52,17 @@ function getCurrentLocation(){
         navigator.geolocation.getCurrentPosition(getposition = (position) => {
             localStorage.setItem("lat", position.coords.latitude);
             localStorage.setItem("lon", position.coords.longitude);
+            if (!document.getElementById("locationPermission").classList.contains("visually-hidden")){
+                document.getElementById("locationPermission").classList.add("visually-hidden");
+            }
             retrieveData();
         }, error => {
             console.log("Location permission is not allowed.");
             // change to user prompt
+            document.getElementById("locationPermission").classList.remove("visually-hidden");
         });
     } else {
-        //Geolocation API not supported 
+        // Geolocation API not supported 
         // change to user prompt
     }
 }
@@ -300,7 +304,7 @@ function changeUnit(unit){
 
 // refresh data
 function refreshData(param = "other"){
-    retrieveData();
+    getCurrentLocation();
     if (param == "click"){
         loader();
     }
@@ -331,7 +335,8 @@ const langData = {
         "COLW": "Check other location weather",
         "ICH": "Input city here",
         "CityNotFound": "City not found. Please input other city!",
-        "Copyright": "Copyright © 2024 13481443, 13481455.<br>All rights reserved."
+        "Copyright": "Copyright © 2024 13481443, 13481455.<br>All rights reserved.",
+        "lPermission": "Location permission is not allowed."
     },
     "zh": 
     {
@@ -356,7 +361,8 @@ const langData = {
         "COLW": "查看其他地區天氣",
         "ICH": "輸入城市",
         "CityNotFound": "未找到城市。請輸入其他城市！",
-        "Copyright": "版權所有 © 2024 13481443, 13481455"
+        "Copyright": "版權所有 © 2024 13481443, 13481455",
+        "lPermission": "沒有允許位置權限"
     },
     "ko": 
     {
@@ -381,7 +387,8 @@ const langData = {
         "COLW": "다른 지역 날씨 살펴보기",
         "ICH": "수입 도시",
         "CityNotFound": "도시를 찾을 수 없습니다. 다른 도시를 입력하십시오!",
-        "Copyright": "판권소유 © 2024 13481443, 13481455"
+        "Copyright": "판권소유 © 2024 13481443, 13481455",
+        "lPermission": "위치 권한이 허용되지 않습니다"
     }
 }
 
@@ -427,6 +434,8 @@ function changeLanguage(lang){
     for (let i = 0; i < gvLang.length; i++) {
         gvLang[i].textContent = langData[lang].GraphicalVersion;
     }
+    const lPLang = document.querySelector(".lPermission");
+    lPLang.textContent = langData[lang].lPermission;
 
     // setting page
     const textSettingList = document.querySelectorAll(".Setting");
