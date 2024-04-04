@@ -33,23 +33,27 @@
             </div>
         </div>
 
-        <!-- network alert -->
-        <div class="alert alert-danger d-flex align-items-center visually-hidden" role="alert" hidden id="noNetwork">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-            <div>
-              An example danger alert with an icon
-            </div>
-        </div>
-
         <!--Navigation bar-->
         <div w3-include-html="navbar.html"></div>
 
         <!-- loader animation -->
         <div class="loader loader-hidden"></div>
 
+
         <!-- Current Weather -->
         <div class="container px-4 pt-4 pb-4" id="currentWeather">
+            <!-- network alert -->
+
             <div class="row gy-2 pt-5">
+                <div class="col-12 visually-hidden" id="locationPermission">
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                        <div class="lPermission">
+                            Location permission is not allowed.
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-sm-6 text-center rounded BG pb-2" style="background-color:#00000010;">
                     <span id="place"></span>
                     <br>
