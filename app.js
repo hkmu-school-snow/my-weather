@@ -319,7 +319,7 @@ const langData = {
         "Language": "Language",
         "UpdateAt": "Updated at",
         "CurrentLocationWeather": "Current location weather",
-        "WeatherForcast": "Weather forcast",
+        "WeatherForcast": "Weather forecast",
         "Refresh": "Refresh",
         "MaxTemp": "Maximum temperature",
         "MinTemp": "Minimum temperature",
