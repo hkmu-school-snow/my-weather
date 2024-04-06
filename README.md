@@ -8,7 +8,6 @@ A mobile web application to check current location weather and other location we
 </ul>
 
 Member:<br>
-NG Tsz Ching (13481443),<br>
-WONG Cho Hin (13481455)<br>
+NG Tsz Ching (13481443),nWONG Cho Hin (13481455)<br>
 
 Application link: https://hkmu-school-snow.github.io/my-weather/
