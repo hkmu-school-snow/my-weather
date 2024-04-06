@@ -27,7 +27,8 @@ function initialize() {
             changeUnit(localStorage.getItem("degreeUnit"));
             changeLanguage(localStorage.getItem("language"));
         }, 3000)
-    } else { // in cordova handle
+    } else { // offline
+        alert("Offline")
     }
 }
 
@@ -57,13 +58,11 @@ function getCurrentLocation(){
             }
             retrieveData();
         }, error => {
-            console.log("Location permission is not allowed.");
-            // change to user prompt
             document.getElementById("locationPermission").classList.remove("visually-hidden");
+            alert(langData[localStorage.getItem("language")].lPermission);
         });
     } else {
-        // Geolocation API not supported 
-        // change to user prompt
+        alert("Geolocation API is not supported.")
     }
 }
 
@@ -336,7 +335,7 @@ const langData = {
         "ICH": "Input city here",
         "CityNotFound": "City not found. Please input other city!",
         "Copyright": "Copyright © 2024 13481443, 13481455.<br>All rights reserved.",
-        "lPermission": "Location permission is not allowed."
+        "lPermission": "Location permission is not allowed. Current location weather is not available."
     },
     "zh": 
     {
@@ -362,7 +361,7 @@ const langData = {
         "ICH": "輸入城市",
         "CityNotFound": "未找到城市。請輸入其他城市！",
         "Copyright": "版權所有 © 2024 13481443, 13481455",
-        "lPermission": "沒有允許位置權限"
+        "lPermission": "沒有允許位置權限。本地天氣無法查看。"
     },
     "ko": 
     {
@@ -388,7 +387,7 @@ const langData = {
         "ICH": "수입 도시",
         "CityNotFound": "도시를 찾을 수 없습니다. 다른 도시를 입력하십시오!",
         "Copyright": "판권소유 © 2024 13481443, 13481455",
-        "lPermission": "위치 권한이 허용되지 않습니다"
+        "lPermission": "위치 권한이 허용되지 않습니다. 현지 날씨를 볼 수 없습니다."
     }
 }
 
@@ -600,19 +599,13 @@ const cityTran = {
 // city data
 const cityData = {
     "name":[
-        "Taipei", "Toyko", "Seoul", 
-        "London", "New York", "Sydney",
-        "Reykjavík", "Nairobi", "Rio de Janeiro", "Antarctica"
+        "Taipei", "Toyko", "Seoul", "London", "New York", "Sydney", "Reykjavík", "Nairobi", "Rio de Janeiro", "Antarctica"
     ], 
     "lat":[
-        "25.0375198", "35.689487", "37.5666791",
-        "51.5074456", "40.741895", "-33.8698439",
-        "64.128288", "-1.286389", "-22.908333", "-76.299965"
+        "25.0375198", "35.689487", "37.5666791", "51.5074456", "40.741895", "-33.8698439", "64.128288", "-1.286389", "-22.908333", "-76.299965"
     ],
     "lon":[
-        "121.5636796", "139.691711", "126.9782914",
-        "-0.1277653", "-73.989308", "151.2082848",
-        "-21.827774", "36.817223", "-43.196388", "-148.003021"
+        "121.5636796", "139.691711", "126.9782914", "-0.1277653", "-73.989308", "151.2082848", "-21.827774", "36.817223", "-43.196388", "-148.003021"
     ]
 }
 
