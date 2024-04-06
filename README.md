@@ -1,6 +1,6 @@
 <h1>COMPS313F Project</h1>
 
-Application name: **My Weather**
+Application name: **My Weather** <br>
 A mobile web application to check current location weather and other location weather.
 <ul>
 <li>Required internet permission to access the weather data.</li>
