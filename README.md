@@ -18,7 +18,7 @@ ___
 <h2>Features</h2>
 <ul>
   <li>View current location weather</li>
-  <li>Check other location weather (search city)</li>
+  <li>Check other location weather (search by city)</li>
   <li>Set different languages</li>
   <li>Resize font</li>
   <li>Switch appearance (light/ dark mode)</li>
