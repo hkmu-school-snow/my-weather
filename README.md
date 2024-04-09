@@ -5,7 +5,7 @@
 **Application name: My Weather** <br><br>
 A mobile web application to check current location weather and other location weather.
 <ul>
-  <li>Required internet permission to access the weather data.</li>
+  <li>Required -internet permission to access the weather data.</li>
   <li>Suggested location permission to access the current location.</li>
 </ul>
 
